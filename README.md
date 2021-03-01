@@ -6,7 +6,7 @@ Download precompiled toolchains from [GitHub Release](https://github.com/messens
 ## Use with Rust
 
 Suppose you have downloaded `x86_64-unknown-linux-gnu` toolchain and extracted it to `$HOME/.local/xtools/x86_64-unknown-linux-gnu`,
-setup the environment as below to use it with Cargo.
+setup the environment variables as below to use it with Cargo.
 
 ```bash
 # Add to PATH
