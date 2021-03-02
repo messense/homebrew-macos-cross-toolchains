@@ -9,6 +9,7 @@ class X8664UnknownLinuxGnu < Formula
     sha256 "b0e6f6734890dcb69ec00b3476936a4d8a296625e41fb344f3a955bcb0e2f9bf"
   else
     url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v1.1.0/x86_64-unknown-linux-gnu-x86_64-darwin-glibc-2.12.1.zip"
+    version "10.2.0"
     sha256 "be2989980202a23a51ee0a8f2e0b44c980169f25c980dce9a02d0826f0111ee4"
   end
 
