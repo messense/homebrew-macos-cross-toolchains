@@ -1,7 +1,8 @@
-# arm-macos-ct
-ARM based macOS cross compiler toolchains
+# macos-cross-toolchains
 
-Download precompiled toolchains from [GitHub Release](https://github.com/messense/arm-macos-ct/releases)
+macOS cross compiler toolchains
+
+Download precompiled toolchains from [GitHub Release](https://github.com/messense/macos-cross-toolchains/releases)
 
 ## Use with Rust
 
