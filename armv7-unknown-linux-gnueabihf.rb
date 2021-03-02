@@ -6,7 +6,7 @@ class Armv7UnknownLinuxGnueabihf < Formula
   if Hardware::CPU.arm?
     url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v1.1.0/armv7-unknown-linux-gnueabihf-aarch64-darwin.zip"
     version "10.2.0"
-    sha256 "8c45305716bb007ad0e1809e1b942856d24d764054b92b8e4fe49a6fd8238fac"
+    sha256 "754cce3e8e455fe1d32bb8de69354b8118ee12b7dd0c8da7e033471010c154ea"
   else
     url ""
     version "10.2.0"
