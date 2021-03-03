@@ -1,5 +1,7 @@
 # macos-cross-toolchains
 
+[![Build](https://github.com/messense/homebrew-macos-cross-toolchains/actions/workflows/Build.yml/badge.svg)](https://github.com/messense/homebrew-macos-cross-toolchains/actions/workflows/Build.yml)
+
 macOS cross compiler toolchains, supports both Apple Silicon & Intel Macs.
 
 Download precompiled toolchains from [GitHub Release](https://github.com/messense/homebrew-macos-cross-toolchains/releases)

@@ -1,0 +1,53 @@
+on:
+  push:
+  pull_request:
+
+name: Build
+
+jobs:
+  build:
+    name: Build
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        target:
+          - x86_64-unknown-linux-gnu
+          - aarch64-unknown-linux-gnu
+          - armv7-unknown-linux-gnueabihf
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install crosstool-ng
+        run: |
+          brew install coreutils
+          brew install --HEAD crosstool-ng
+      - name: Mount volumes
+        run: |
+          hdiutil create -type SPARSE -fs 'Case-sensitive Journaled HFS+' -size 16g -volname build build.dmg
+          hdiutil create -type SPARSE -fs 'Case-sensitive Journaled HFS+' -size 1g -volname tools tools.dmg
+          hdiutil attach build.dmg.sparseimage
+          hdiutil attach tools.dmg.sparseimage
+          ls /Volumes
+      - name: Build Toolchain
+        run: |
+          mkdir /Volumes/build/src
+          cd ${{ matrix.target }}
+          ct-ng build
+      - name: Archive Toolchain
+        run: |
+          cd /Volumes/tools
+          tar czf ${{ matrix.target }}-x86_64-darwin.tar.gz ${{ matrix.target }}
+          cd -
+          mv /Volumes/tools/${{ matrix.target }}-x86_64-darwin.tar.gz .
+      - name: Upload Toolchain
+        uses: actions/upload-artifact@v2
+        with:
+          name: toolchains
+          path: ${{ matrix.target }}-x86_64-darwin.tar.gz
+      - name: Upload Toolchain to GitHub Release
+        uses: svenstaro/upload-release-action@v2
+        if: "startsWith(github.ref, 'refs/tags/')"
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          asset_name: ${{ matrix.target }}-x86_64-darwin.tar.gz
+          file: ${{ matrix.target }}-x86_64-darwin.tar.gz
+          tag: ${{ github.ref }}
