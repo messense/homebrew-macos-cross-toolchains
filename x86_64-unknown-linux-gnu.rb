@@ -4,13 +4,13 @@ class X8664UnknownLinuxGnu < Formula
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
 
   if Hardware::CPU.arm?
-    url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v1.1.0/x86_64-unknown-linux-gnu-aarch64-darwin-glibc-2.12.1.zip"
+    url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v1.2.0/x86_64-unknown-linux-gnu-aarch64-darwin.tar.gz"
     version "10.2.0"
-    sha256 "b0e6f6734890dcb69ec00b3476936a4d8a296625e41fb344f3a955bcb0e2f9bf"
+    sha256 "aa336065b8bdbfa700e756e676b966f380379da2cda6503a5166e3fe505b45dd"
   else
-    url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v1.1.0/x86_64-unknown-linux-gnu-x86_64-darwin-glibc-2.12.1.zip"
+    url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v1.2.0/x86_64-unknown-linux-gnu-x86_64-darwin.tar.gz"
     version "10.2.0"
-    sha256 "be2989980202a23a51ee0a8f2e0b44c980169f25c980dce9a02d0826f0111ee4"
+    sha256 "591061e8753b28907d0dc9f5e9c52b933b6b6993077673bca53d74f7ac969be2"
   end
 
   def install

@@ -4,13 +4,13 @@ class Armv7UnknownLinuxGnueabihf < Formula
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
 
   if Hardware::CPU.arm?
-    url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v1.1.0/armv7-unknown-linux-gnueabihf-aarch64-darwin.zip"
+    url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v1.2.0/armv7-unknown-linux-gnueabihf-aarch64-darwin.tar.gz"
     version "10.2.0"
-    sha256 "754cce3e8e455fe1d32bb8de69354b8118ee12b7dd0c8da7e033471010c154ea"
+    sha256 "0697494215ad1f72f5e05aff8d81a0e4c6d73d3c9c31bf33a6eda1ad5f52115d"
   else
-    url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v1.1.0/armv7-unknown-linux-gnueabihf-x86_64-darwin.zip"
+    url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v1.2.0/armv7-unknown-linux-gnueabihf-x86_64-darwin.tar.gz"
     version "10.2.0"
-    sha256 "0d2ebfd8d3964b345d0740b6caeb7ce419cea4a2706e64ecbeb50539ec65ff75"
+    sha256 "a495c7e31b211461e718b8577d6ceb4f0df638af3b0407cd1b276257c346fa5e"
   end
 
   def install

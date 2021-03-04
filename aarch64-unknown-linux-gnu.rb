@@ -4,13 +4,13 @@ class Aarch64UnknownLinuxGnu < Formula
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
 
   if Hardware::CPU.arm?
-    url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v1.1.0/aarch64-unknown-linux-gnu-aarch64-darwin.zip"
+    url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v1.2.0/aarch64-unknown-linux-gnu-aarch64-darwin.tar.gz"
     version "10.2.0"
-    sha256 "e35da4da4330912c5a188e321cf18ef8ef0abb18d0414a339f75b20c2bd7c0a1"
+    sha256 "139f23e1cab798499eeb185a6de03a77ad3db93017e30e4b492c70b01d397573"
   else
-    url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v1.1.0/aarch64-unknown-linux-gnu-x86_64-darwin.zip"
+    url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v1.2.0/aarch64-unknown-linux-gnu-x86_64-darwin.tar.gz"
     version "10.2.0"
-    sha256 "8c45305716bb007ad0e1809e1b942856d24d764054b92b8e4fe49a6fd8238fac"
+    sha256 "b852f310e3a4750826e3c0e2cf146e63a94ccb15dcf4fc81c8ac58b2a4b8f6d6"
   end
 
   def install
