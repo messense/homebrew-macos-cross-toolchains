@@ -28,6 +28,10 @@ jobs:
         run: |
           hdiutil create -type SPARSE -fs 'Case-sensitive Journaled HFS+' -size 16g -volname build build.dmg
           hdiutil create -type SPARSE -fs 'Case-sensitive Journaled HFS+' -size 1g -volname tools tools.dmg
+          # Detach old if exists
+          hdiutil detach /Volumes/build | true
+          hdiutil detach /Volumes/tools | true
+          # Attach new
           hdiutil attach build.dmg.sparseimage
           hdiutil attach tools.dmg.sparseimage
           ls /Volumes
