@@ -1,5 +1,6 @@
 on:
   push:
+    tags: [ 'v*' ]
   pull_request:
 
 name: Build x86_64
