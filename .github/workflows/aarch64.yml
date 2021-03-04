@@ -12,10 +12,10 @@ jobs:
     strategy:
       matrix:
         target:
-          #- x86_64-unknown-linux-gnu
+          - x86_64-unknown-linux-gnu
           - i686-unknown-linux-gnu
-          #- aarch64-unknown-linux-gnu
-          #- armv7-unknown-linux-gnueabihf
+          - aarch64-unknown-linux-gnu
+          - armv7-unknown-linux-gnueabihf
     steps:
       - uses: actions/checkout@v2
       - name: Setup homebrew
