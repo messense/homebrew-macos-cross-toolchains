@@ -2,7 +2,7 @@ on:
   push:
   pull_request:
 
-name: Build
+name: Build x86_64
 
 jobs:
   build:
