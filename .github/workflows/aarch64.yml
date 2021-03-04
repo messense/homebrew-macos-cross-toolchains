@@ -8,7 +8,10 @@ name: Build aarch64
 jobs:
   build:
     name: Build
-    runs-on: self-hosted
+    runs-on: [self-hosted, macOS, arm64]
+    defaults:
+      run:
+        shell: "/usr/bin/arch -arch arm64e /bin/bash -l {0}"
     strategy:
       matrix:
         target:
@@ -18,10 +21,6 @@ jobs:
           - armv7-unknown-linux-gnueabihf
     steps:
       - uses: actions/checkout@v2
-      - name: Setup homebrew
-        run: |
-          echo "/opt/homebrew/bin" >> "${GITHUB_PATH}"
-          echo "/opt/homebrew/sbin" >> "${GITHUB_PATH}"
       - name: Install crosstool-ng
         run: |
           brew install coreutils
@@ -41,7 +40,7 @@ jobs:
         run: |
           mkdir /Volumes/build/src
           cd ${{ matrix.target }}
-          arch -arm64 ct-ng build
+          ct-ng build
       - name: Archive Toolchain
         run: |
           cd /Volumes/tools
