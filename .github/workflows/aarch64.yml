@@ -48,9 +48,10 @@ jobs:
           mv /Volumes/tools/${{ matrix.target }}-aarch64-darwin.tar.gz .
           sha256sum ${{ matrix.target }}-aarch64-darwin.tar.gz > ${{ matrix.target }}-aarch64-darwin.tar.gz.sha256
       - name: Remove volumes
+        if: ${{ always() }}
         run: |
-          hdiutil detach /Volumes/build
-          hdiutil detach /Volumes/tools
+          hdiutil detach /Volumes/build | true
+          hdiutil detach /Volumes/tools | true
       - name: Upload Toolchain
         uses: actions/upload-artifact@v2
         with:
