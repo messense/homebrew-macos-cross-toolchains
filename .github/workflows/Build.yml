@@ -12,9 +12,10 @@ jobs:
     strategy:
       matrix:
         target:
-          - x86_64-unknown-linux-gnu
-          - aarch64-unknown-linux-gnu
-          - armv7-unknown-linux-gnueabihf
+          #- x86_64-unknown-linux-gnu
+          - i686-unknown-linux-gnu
+          #- aarch64-unknown-linux-gnu
+          #- armv7-unknown-linux-gnueabihf
     steps:
       - uses: actions/checkout@v2
       - name: Install crosstool-ng
