@@ -2,10 +2,10 @@ class I686UnknownLinuxGnu < Formula
   desc "i686 Linux GNU Toolchain"
   homepage "https://github.com/messense/homebrew-macos-cross-toolchains"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
+  version "10.3.0"
 
   if Hardware::CPU.arm?
     url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v10.3.0/i686-unknown-linux-gnu-aarch64-darwin.tar.gz"
-    version "10.3.0"
     sha256 "98d9206ae063953b691725138320ac792e0e782b0471b389c8bc0085f8c6093f"
   else
     url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v10.3.0/i686-unknown-linux-gnu-x86_64-darwin.tar.gz"
