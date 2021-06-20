@@ -57,7 +57,7 @@ jobs:
           tar czf ${{ matrix.target }}-aarch64-darwin.tar.gz ${{ matrix.target }}
           cd -
           mv /Volumes/tools/${{ matrix.target }}-aarch64-darwin.tar.gz .
-          sha256sum ${{ matrix.target }}-aarch64-darwin.tar.gz > ${{ matrix.target }}-aarch64-darwin.tar.gz.sha256
+          sha256sum ${{ matrix.target }}-aarch64-darwin.tar.gz | tee ${{ matrix.target }}-aarch64-darwin.tar.gz.sha256
       - name: Remove volumes
         if: ${{ always() }}
         run: |

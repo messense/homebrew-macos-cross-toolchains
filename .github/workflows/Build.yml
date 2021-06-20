@@ -50,7 +50,7 @@ jobs:
           tar czf ${{ matrix.target }}-x86_64-darwin.tar.gz ${{ matrix.target }}
           cd -
           mv /Volumes/tools/${{ matrix.target }}-x86_64-darwin.tar.gz .
-          sha256sum ${{ matrix.target }}-x86_64-darwin.tar.gz > ${{ matrix.target }}-x86_64-darwin.tar.gz.sha256
+          sha256sum ${{ matrix.target }}-x86_64-darwin.tar.gz | tee ${{ matrix.target }}-x86_64-darwin.tar.gz.sha256
       - name: Upload Toolchain
         uses: actions/upload-artifact@v2
         with:
