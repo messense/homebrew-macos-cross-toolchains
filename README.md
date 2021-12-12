@@ -1,5 +1,7 @@
 # macos-cross-toolchains
 
+> 🚀 Help me to become a full-time open-source developer by [sponsoring me on GitHub](https://github.com/sponsors/messense)
+
 macOS cross compiler toolchains, supports both Apple Silicon & Intel Macs.
 
 Download precompiled toolchains from [GitHub Release](https://github.com/messense/homebrew-macos-cross-toolchains/releases)
