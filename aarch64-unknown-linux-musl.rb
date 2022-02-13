@@ -5,6 +5,7 @@ class Aarch64UnknownLinuxMusl < Formula
   version "10.3.0"
 
   depends_on "zstd"
+  depends_on "python@3.9"
 
   if Hardware::CPU.arm?
     url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v10.3.0/aarch64-unknown-linux-musl-aarch64-darwin.tar.gz"
