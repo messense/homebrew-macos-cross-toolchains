@@ -47,7 +47,7 @@ jobs:
         run: |
           mkdir /Volumes/build/src
           cd ${{ matrix.target }}
-          ct-ng build
+          ct-ng build -j $(($(nproc) - 1))
       - name: Tail build.log on failure
         if: ${{ failure() }}
         run: tail -n 500 ${{ matrix.target }}/build.log
