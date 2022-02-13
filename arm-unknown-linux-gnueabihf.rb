@@ -4,6 +4,8 @@ class ArmUnknownLinuxGnueabihf < Formula
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
   version "10.3.0"
 
+  depends_on "zstd"
+
   if Hardware::CPU.arm?
     url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v10.3.0/arm-unknown-linux-gnueabihf-aarch64-darwin.tar.gz"
     sha256 ""

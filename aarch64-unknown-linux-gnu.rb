@@ -4,6 +4,8 @@ class Aarch64UnknownLinuxGnu < Formula
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
   version "10.3.0"
 
+  depends_on "zstd"
+
   if Hardware::CPU.arm?
     url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v10.3.0/aarch64-unknown-linux-gnu-aarch64-darwin.tar.gz"
     sha256 "73368756074d04c4b318a7f4874bc1bafe945b0f997ef781b28c8e7a4398b7c1"
