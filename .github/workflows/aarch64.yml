@@ -14,6 +14,7 @@ jobs:
       run:
         shell: "/usr/bin/arch -arch arm64e /bin/bash -l {0}"
     strategy:
+      fail-fast: false
       matrix:
         target:
           - x86_64-unknown-linux-gnu
@@ -24,8 +25,8 @@ jobs:
           - aarch64-unknown-linux-musl
           - armv7-unknown-linux-gnueabihf
           - armv7-unknown-linux-musleabihf
-          # - arm-unknown-linux-gnueabi
-          # - arm-unknown-linux-gnueabihf
+          - arm-unknown-linux-gnueabi
+          - arm-unknown-linux-gnueabihf
     steps:
       - uses: actions/checkout@v2
       - name: Install crosstool-ng
