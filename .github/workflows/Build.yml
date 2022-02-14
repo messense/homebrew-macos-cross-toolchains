@@ -3,6 +3,7 @@ on:
     branches:
       - 'build/*'
     tags: [ 'v*' ]
+  workflow_dispatch:
 
 name: Build x86_64
 
