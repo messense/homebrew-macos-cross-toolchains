@@ -2,17 +2,19 @@ class X8664UnknownLinuxGnu < Formula
   desc "x86_64 Linux GNU Toolchain"
   homepage "https://github.com/messense/homebrew-macos-cross-toolchains"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
-  version "10.3.0"
+  version "11.2.0"
 
+  depends_on "bdw-gc"
+  depends_on "guile"
   depends_on "zstd"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   if Hardware::CPU.arm?
-    url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v10.3.0/x86_64-unknown-linux-gnu-aarch64-darwin.tar.gz"
-    sha256 "b625e611d2b40b27c77dde4aa406b38f1dbd2c7df9661b89707cb7c9a57a961c"
+    url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v11.2.0/x86_64-unknown-linux-gnu-aarch64-darwin.tar.gz"
+    sha256 "e6f593c9a19508a794a3ee1b1e1e5925d3782e6aec6856999b4a6f5bb59552fb"
   else
-    url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v10.3.0/x86_64-unknown-linux-gnu-x86_64-darwin.tar.gz"
-    sha256 "813b6fd20326b745264d1a7c11d5a286c7aeb8150036c01261ca1dcfd58dba8b"
+    url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v11.2.0/x86_64-unknown-linux-gnu-x86_64-darwin.tar.gz"
+    sha256 "084fcced4c78f4624033b9c89c797364999768de431c390cdcc520a5a30d1b27"
   end
 
   def install

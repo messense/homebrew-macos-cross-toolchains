@@ -2,17 +2,19 @@ class X8664UnknownLinuxMusl < Formula
   desc "x86_64 Linux MUSL Toolchain"
   homepage "https://github.com/messense/homebrew-macos-cross-toolchains"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
-  version "10.3.0"
+  version "11.2.0"
 
+  depends_on "bdw-gc"
+  depends_on "guile"
   depends_on "zstd"
-  depends_on "python@3.9"
+  depends_on "python@3.10"
 
   if Hardware::CPU.arm?
-    url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v10.3.0/x86_64-unknown-linux-musl-aarch64-darwin.tar.gz"
-    sha256 "c30ec6948cbb7a2e6b8202e8987e78514c6bd7b5ca520d22ee54e07c8dc5962e"
+    url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v11.2.0/x86_64-unknown-linux-musl-aarch64-darwin.tar.gz"
+    sha256 "588bd5976efc441ae29a1574c27dfe4b0862ad28d868e53aad5c36cdd67450dc"
   else
-    url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v10.3.0/x86_64-unknown-linux-musl-x86_64-darwin.tar.gz"
-    sha256 "1a6bed20ab1f4800e2af119c1694c3378fd2df514fb11a40374efef49838e86e"
+    url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v11.2.0/x86_64-unknown-linux-musl-x86_64-darwin.tar.gz"
+    sha256 "a3cd8f2d18effb6906a7a49dd3f0231440c090a90821916772d27daee8cda558"
   end
 
   def install
