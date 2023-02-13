@@ -28,6 +28,7 @@ jobs:
           - armv7-unknown-linux-musleabihf
           - arm-unknown-linux-gnueabi
           - arm-unknown-linux-gnueabihf
+          - arm-unknown-linux-musleabihf
     steps:
       - uses: actions/checkout@v2
       - name: Install crosstool-ng
