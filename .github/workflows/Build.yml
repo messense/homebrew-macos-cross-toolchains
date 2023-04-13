@@ -29,8 +29,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Install crosstool-ng
         run: |
-          brew install coreutils
-          brew install --HEAD crosstool-ng
+          brew install coreutils crosstool-ng
       - name: Mount volumes
         run: |
           hdiutil create -type SPARSE -fs 'Case-sensitive Journaled HFS+' -size 16g -volname build build.dmg
