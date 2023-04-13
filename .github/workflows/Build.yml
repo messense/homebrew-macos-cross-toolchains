@@ -25,13 +25,15 @@ jobs:
           - armv7-unknown-linux-musleabihf
           - arm-unknown-linux-gnueabi
           - arm-unknown-linux-gnueabihf
+          - arm-unknown-linux-musleabihf
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Install crosstool-ng
         run: |
           brew install coreutils crosstool-ng
       - name: Mount volumes
         run: |
+          set -ex
           hdiutil create -type SPARSE -fs 'Case-sensitive Journaled HFS+' -size 16g -volname build build.dmg
           hdiutil create -type SPARSE -fs 'Case-sensitive Journaled HFS+' -size 1g -volname tools tools.dmg
           hdiutil attach build.dmg.sparseimage
@@ -39,6 +41,7 @@ jobs:
           ls /Volumes
       - name: Build Toolchain
         run: |
+          set -ex
           mkdir /Volumes/build/src
           cd ${{ matrix.target }}
           ct-ng build -j $(($(nproc) - 1))
@@ -47,16 +50,18 @@ jobs:
         run: tail -n 500 ${{ matrix.target }}/build.log
       - name: Archive Toolchain
         run: |
+          set -ex
           cd /Volumes/tools
           tar czf ${{ matrix.target }}-x86_64-darwin.tar.gz ${{ matrix.target }}
           cd -
           mv /Volumes/tools/${{ matrix.target }}-x86_64-darwin.tar.gz .
           sha256sum ${{ matrix.target }}-x86_64-darwin.tar.gz | tee ${{ matrix.target }}-x86_64-darwin.tar.gz.sha256
       - name: Upload Toolchain
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: toolchains
           path: ${{ matrix.target }}-x86_64-darwin.tar.gz
+          if-no-files-found: error
       - name: Upload Toolchain to GitHub Release
         uses: svenstaro/upload-release-action@v2
         if: "startsWith(github.ref, 'refs/tags/')"
