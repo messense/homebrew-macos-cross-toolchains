@@ -8,7 +8,7 @@ class Armv7UnknownLinuxMusleabihf < Formula
   depends_on "bdw-gc"
   depends_on "guile"
   depends_on "zstd"
-  depends_on "python@3.11"
+  depends_on "python@3.10"
 
   if Hardware::CPU.arm?
     url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v11.2.0-1/armv7-unknown-linux-musleabihf-aarch64-darwin.tar.gz"
