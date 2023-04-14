@@ -22,8 +22,14 @@ Suppose you have installed `x86_64-unknown-linux-gnu` toolchain and have it on `
 setup the environment variables as below to use it with Cargo.
 
 ```bash
-export CC_x86_64_unknown_linux_gnu=x86_64-unknown-linux-gnu-gcc
-export CXX_x86_64_unknown_linux_gnu=x86_64-unknown-linux-gnu-g++
-export AR_x86_64_unknown_linux_gnu=x86_64-unknown-linux-gnu-ar
-export CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_LINKER=x86_64-unknown-linux-gnu-gcc
+export CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_LINKER=x86_64-linux-gnu-gcc
+```
+
+Usually only `CARGO_TARGET_*_LINKER` is required, in case it somehow fails to compile,
+you can also set some extra environment variables:
+
+```bash
+export CC_x86_64_unknown_linux_gnu=x86_64-linux-gnu-gcc
+export CXX_x86_64_unknown_linux_gnu=x86_64-linux-gnu-g++
+export AR_x86_64_unknown_linux_gnu=x86_64-linux-gnu-ar
 ```
