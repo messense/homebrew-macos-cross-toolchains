@@ -26,6 +26,7 @@ jobs:
           - arm-unknown-linux-gnueabi
           - arm-unknown-linux-gnueabihf
           - arm-unknown-linux-musleabihf
+          - mipsel-unknown-linux-gnu
     steps:
       - uses: actions/checkout@v3
       - name: Install crosstool-ng
