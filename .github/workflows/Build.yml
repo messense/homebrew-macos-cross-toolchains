@@ -10,7 +10,7 @@ name: Build x86_64
 jobs:
   build:
     name: Build
-    runs-on: macos-10.15
+    runs-on: macos-11
     strategy:
       fail-fast: false
       matrix:
