@@ -10,7 +10,7 @@ name: Build aarch64
 jobs:
   build:
     name: Build
-    runs-on: [self-hosted, macOS, ARM64]
+    runs-on: macos-14
     strategy:
       fail-fast: false
       matrix:
@@ -32,6 +32,7 @@ jobs:
       - name: Install crosstool-ng
         run: |
           brew install coreutils crosstool-ng
+          python3 --version
       - name: Mount volumes
         run: |
           set -ex
@@ -49,7 +50,7 @@ jobs:
           set -ex
           mkdir /Volumes/build/src
           cd ${{ matrix.target }}
-          ct-ng build -j $(($(nproc) - 1))
+          MACOSX_DEPLOYMENT_TARGET=11.0 ct-ng build -j $(($(nproc) - 1))
       - name: Tail build.log on failure
         if: ${{ failure() }}
         run: tail -n 500 ${{ matrix.target }}/build.log
