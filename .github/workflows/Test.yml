@@ -9,7 +9,12 @@ name: Test
 jobs:
   test:
     name: Test
-    runs-on: macos-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - macos-latest
+          - macos-14
     steps:
       - name: brew tap
         run: brew tap messense/macos-cross-toolchains
