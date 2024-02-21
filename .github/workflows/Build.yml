@@ -11,7 +11,7 @@ name: Build
 
 jobs:
   build:
-    name: Build ${{ matrix.os.arch }}
+    name: Build ${{ matrix.target }} for ${{ matrix.os.arch }}
     if: ${{ github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'CI-build') }}
     runs-on: ${{ matrix.os.name }}
     strategy:
