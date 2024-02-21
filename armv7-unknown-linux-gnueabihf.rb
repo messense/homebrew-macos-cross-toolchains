@@ -7,7 +7,7 @@ class Armv7UnknownLinuxGnueabihf < Formula
   depends_on "bdw-gc"
   depends_on "guile"
   depends_on "zstd"
-  depends_on "python@3.10"
+  depends_on "python@3.11"
 
   if Hardware::CPU.arm?
     url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v13.2.0/armv7-unknown-linux-gnueabihf-aarch64-darwin.tar.gz"
