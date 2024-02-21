@@ -2,8 +2,7 @@ class MipselUnknownLinuxGnu < Formula
   desc "mipsel Linux GNU Toolchain"
   homepage "https://github.com/messense/homebrew-macos-cross-toolchains"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
-  version "11.2.0"
-  revision 1
+  version "13.2.0"
 
   depends_on "bdw-gc"
   depends_on "guile"
@@ -11,12 +10,12 @@ class MipselUnknownLinuxGnu < Formula
 
   if Hardware::CPU.arm?
     depends_on "python@3.10"
-    url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v11.2.0-1/mipsel-unknown-linux-gnu-aarch64-darwin.tar.gz"
-    sha256 "9878c769d5944e94f734f0ea72655a9c18e814898435766dea6426e0df02438e"
+    url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v13.2.0/mipsel-unknown-linux-gnu-aarch64-darwin.tar.gz"
+    sha256 "b4e521bb7c28ed2b66f94f6a1bb6e840066fcbe1e4efde01528921cda3a07e99"
   else
     depends_on "python@3.11"
-    url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v11.2.0-1/mipsel-unknown-linux-gnu-x86_64-darwin.tar.gz"
-    sha256 "f5729b9a07d94cc505dd8d025343af985f98ca851030ee9396ceba7be282cab6"
+    url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v13.2.0/mipsel-unknown-linux-gnu-x86_64-darwin.tar.gz"
+    sha256 "5585d3890d5b978f67e39812203667b1ddf1719ff3e0b6ce06d9bdce8e7a0903"
   end
 
   def install
