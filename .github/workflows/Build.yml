@@ -18,7 +18,7 @@ jobs:
       fail-fast: false
       matrix:
         os:
-          - name: macos-11
+          - name: macos-12
             arch: x86_64
           - name: macos-14
             arch: aarch64
@@ -36,7 +36,7 @@ jobs:
           - arm-unknown-linux-musleabihf
           - mipsel-unknown-linux-gnu
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Install crosstool-ng
         run: |
           brew install coreutils crosstool-ng
