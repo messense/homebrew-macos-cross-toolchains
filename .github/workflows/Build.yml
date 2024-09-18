@@ -39,7 +39,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install crosstool-ng
         run: |
-          brew install coreutils crosstool-ng
+          brew install coreutils
+          brew install --HEAD crosstool-ng
           # fix python env in the runner
           brew unlink python@3.11 && brew link --overwrite python@3.11
           python3 --version
