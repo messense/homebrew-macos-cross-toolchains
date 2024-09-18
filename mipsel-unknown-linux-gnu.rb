@@ -9,11 +9,11 @@ class MipselUnknownLinuxGnu < Formula
   depends_on "zstd"
 
   if Hardware::CPU.arm?
-    depends_on "python@3.11"
+    depends_on "python@3.12"
     url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v13.2.0/mipsel-unknown-linux-gnu-aarch64-darwin.tar.gz"
     sha256 "b4e521bb7c28ed2b66f94f6a1bb6e840066fcbe1e4efde01528921cda3a07e99"
   else
-    depends_on "python@3.11"
+    depends_on "python@3.12"
     url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v13.2.0/mipsel-unknown-linux-gnu-x86_64-darwin.tar.gz"
     sha256 "5585d3890d5b978f67e39812203667b1ddf1719ff3e0b6ce06d9bdce8e7a0903"
   end
