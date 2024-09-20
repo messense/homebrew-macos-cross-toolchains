@@ -12,6 +12,7 @@ name: Build
 permissions:
   id-token: write
   attestations: write
+  contents: write
 
 jobs:
   build:
