@@ -9,6 +9,10 @@ on:
 
 name: Build
 
+permissions:
+  id-token: write
+  attestations: write
+
 jobs:
   build:
     name: Build ${{ matrix.target }} for ${{ matrix.os.arch }}
@@ -18,7 +22,7 @@ jobs:
       fail-fast: false
       matrix:
         os:
-          - name: macos-11
+          - name: macos-12
             arch: x86_64
           - name: macos-14
             arch: aarch64
@@ -36,12 +40,13 @@ jobs:
           - arm-unknown-linux-musleabihf
           - mipsel-unknown-linux-gnu
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Install crosstool-ng
         run: |
-          brew install coreutils crosstool-ng
+          brew install coreutils
+          brew install --HEAD crosstool-ng
           # fix python env in the runner
-          brew unlink python@3.11 && brew link --overwrite python@3.11
+          brew unlink python@3.12 && brew link --overwrite python@3.12
           python3 --version
       - name: Mount volumes
         run: |
@@ -68,6 +73,9 @@ jobs:
           cd -
           mv /Volumes/tools/${{ matrix.target }}-${{ matrix.os.arch }}-darwin.tar.gz .
           sha256sum ${{ matrix.target }}-${{ matrix.os.arch }}-darwin.tar.gz | tee ${{ matrix.target }}-${{ matrix.os.arch }}-darwin.tar.gz.sha256
+      - uses: actions/attest-build-provenance@v1
+        with:
+          subject-path: ${{ matrix.target }}-${{ matrix.os.arch }}-darwin.tar.gz
       - name: Upload Toolchain
         uses: actions/upload-artifact@v4
         with:
