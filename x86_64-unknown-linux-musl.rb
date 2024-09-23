@@ -1,4 +1,4 @@
-class X86_64UnknownLinuxMusl < Formula
+class X8664UnknownLinuxMusl < Formula
   desc "x86_64-unknown-linux-musl Toolchain"
   homepage "https://github.com/messense/homebrew-macos-cross-toolchains"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }

@@ -41,7 +41,7 @@ def fetch_targets_from_latest_release():
             if target not in targets:
                 targets[target] = {
                     "version": version,
-                    "name": target.title().replace("-", ""),
+                    "name": target.title().replace("-", "").replace("_", ""),
                     "description": f"{target} Toolchain",
                 }
             if arch == "aarch64":
