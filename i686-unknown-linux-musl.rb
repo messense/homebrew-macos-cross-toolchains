@@ -1,8 +1,8 @@
 class I686UnknownLinuxMusl < Formula
-  desc "i686 Linux MUSL Toolchain"
+  desc "i686-unknown-linux-musl Toolchain"
   homepage "https://github.com/messense/homebrew-macos-cross-toolchains"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
-  version "13.2.0"
+  version "13.3.0"
 
   depends_on "bdw-gc"
   depends_on "guile"
@@ -10,11 +10,11 @@ class I686UnknownLinuxMusl < Formula
   depends_on "python@3.12"
 
   if Hardware::CPU.arm?
-    url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v13.2.0/i686-unknown-linux-musl-aarch64-darwin.tar.gz"
-    sha256 "774c58d86877cb8a9f21705418137f2564b0c7bdc60db3d9461781c12803917d"
+    url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v13.3.0/i686-unknown-linux-musl-aarch64-darwin.tar.gz"
+    sha256 "af39edc473382a0a1fa583ee28d21c2bf20c3aea55129e3a5bad3f614ba85019"
   else
-    url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v13.2.0/i686-unknown-linux-musl-x86_64-darwin.tar.gz"
-    sha256 "0c56ec34be51295a3da5b9c890ebe77a209ca707ff163ec377ba3b3f11bd5703"
+    url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v13.3.0/i686-unknown-linux-musl-x86_64-darwin.tar.gz"
+    sha256 "0969c1b83bfc177774edf616f74b953e2239693c19d2b419485b29ff90608f58"
   end
 
   def install
