@@ -41,7 +41,7 @@ jobs:
           - arm-unknown-linux-musleabihf
           - mipsel-unknown-linux-gnu
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Install crosstool-ng
         run: |
           brew install coreutils crosstool-ng
@@ -73,7 +73,7 @@ jobs:
           cd -
           mv /Volumes/tools/${{ matrix.target }}-${{ matrix.os.arch }}-darwin.tar.gz .
           sha256sum ${{ matrix.target }}-${{ matrix.os.arch }}-darwin.tar.gz | tee ${{ matrix.target }}-${{ matrix.os.arch }}-darwin.tar.gz.sha256
-      - uses: actions/attest-build-provenance@v1
+      - uses: actions/attest-build-provenance@v3
         with:
           subject-path: ${{ matrix.target }}-${{ matrix.os.arch }}-darwin.tar.gz
       - name: Upload Toolchain
