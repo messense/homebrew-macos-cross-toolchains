@@ -74,6 +74,7 @@ jobs:
           mv /Volumes/tools/${{ matrix.target }}-${{ matrix.os.arch }}-darwin.tar.gz .
           sha256sum ${{ matrix.target }}-${{ matrix.os.arch }}-darwin.tar.gz | tee ${{ matrix.target }}-${{ matrix.os.arch }}-darwin.tar.gz.sha256
       - uses: actions/attest-build-provenance@v3
+        if: "startsWith(github.ref, 'refs/tags/')"
         with:
           subject-path: ${{ matrix.target }}-${{ matrix.os.arch }}-darwin.tar.gz
       - name: Upload Toolchain
