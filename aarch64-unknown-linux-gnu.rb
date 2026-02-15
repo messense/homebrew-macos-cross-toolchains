@@ -2,7 +2,7 @@ class Aarch64UnknownLinuxGnu < Formula
   desc "aarch64-unknown-linux-gnu Toolchain"
   homepage "https://github.com/messense/homebrew-macos-cross-toolchains"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
-  version "13.3.0"
+  version "15.2.0"
 
   depends_on "bdw-gc"
   depends_on "guile"
@@ -10,11 +10,11 @@ class Aarch64UnknownLinuxGnu < Formula
   depends_on "python@3.14"
 
   if Hardware::CPU.arm?
-    url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v13.3.0/aarch64-unknown-linux-gnu-aarch64-darwin.tar.gz"
-    sha256 "5092abd7f9f318672e833a8ad99a88d3d9044afc6e7152b26740d18b29949141"
+    url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v15.2.0/aarch64-unknown-linux-gnu-aarch64-darwin.tar.gz"
+    sha256 "0f224db36d8572489f09ed5bce39f189eee998f9ab4f8ea07f510d6c7078caa3"
   else
-    url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v13.3.0/aarch64-unknown-linux-gnu-x86_64-darwin.tar.gz"
-    sha256 "b138ca4384313687a87eb9c25203aa57ddd36f440b8de1830af2fdd2019e1581"
+    url "https://github.com/messense/homebrew-macos-cross-toolchains/releases/download/v15.2.0/aarch64-unknown-linux-gnu-x86_64-darwin.tar.gz"
+    sha256 "7fa485313b7049d57c5de56bf876d5c4648ebfd736f86a8f4739596218523127"
   end
 
   def install
