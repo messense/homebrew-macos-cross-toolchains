@@ -23,7 +23,7 @@ jobs:
       fail-fast: false
       matrix:
         os:
-          - name: macos-12
+          - name: macos-15-intel
             arch: x86_64
           - name: macos-14
             arch: aarch64
@@ -41,13 +41,12 @@ jobs:
           - arm-unknown-linux-musleabihf
           - mipsel-unknown-linux-gnu
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Install crosstool-ng
         run: |
-          brew install coreutils
-          brew install --HEAD crosstool-ng
+          brew install coreutils crosstool-ng
           # fix python env in the runner
-          brew unlink python@3.12 && brew link --overwrite python@3.12
+          brew unlink python@3.14 && brew link --overwrite python@3.14
           python3 --version
       - name: Mount volumes
         run: |
@@ -74,7 +73,8 @@ jobs:
           cd -
           mv /Volumes/tools/${{ matrix.target }}-${{ matrix.os.arch }}-darwin.tar.gz .
           sha256sum ${{ matrix.target }}-${{ matrix.os.arch }}-darwin.tar.gz | tee ${{ matrix.target }}-${{ matrix.os.arch }}-darwin.tar.gz.sha256
-      - uses: actions/attest-build-provenance@v1
+      - uses: actions/attest-build-provenance@v3
+        if: "startsWith(github.ref, 'refs/tags/')"
         with:
           subject-path: ${{ matrix.target }}-${{ matrix.os.arch }}-darwin.tar.gz
       - name: Upload Toolchain
