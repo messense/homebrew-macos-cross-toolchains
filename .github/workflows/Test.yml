@@ -18,6 +18,8 @@ jobs:
     steps:
       - name: brew tap
         run: brew tap messense/macos-cross-toolchains
+      - name: brew trust tap
+        run: brew trust messense/macos-cross-toolchains
       - name: brew install
         run: |
           brew install \
